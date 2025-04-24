@@ -45,16 +45,14 @@ if you do not have Git installed.
 **This addon has only been tested with Godot 4.x**
 
 - Add a `VulpineLogicHTTPServer` node to your scene tree.
-- Place an `index.html` file somewhere under `res://`, such as "res://public/index.html"
+- Place an `index.html` file somewhere under `res://`, such as `res://public/index.html`
 
 ```gdscript
+var server: VulpineLogicHTTPServer = $HTTPServer
 var index_page: VulpineLogicHTML = preload("res://public/index.html")
 
 func _ready() -> void:
-	var server: VulpineLogicHTTPServer = $HTTPServer
-	server.port = 8080
 	server.add_route("GET", "/", _on_index_route)
-
 	await server.listen()
 	print("HTTP server listening on port %s" % server.port)
 
@@ -63,7 +61,7 @@ func _on_index_route(_request: VulpineLogicHTTPServer.Request) -> Dictionary:
 	return { "content": index_page.html }
 ```
 
-Visit `http://localhost:8080/` to view the index page.
+Visit `http://localhost:3000/` to view the index page.
 
 ## Route Handlers
 
