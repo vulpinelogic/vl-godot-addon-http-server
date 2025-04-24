@@ -1,3 +1,4 @@
+@icon("res://addons/vulpinelogic_http_server/icon.png")
 class_name VulpineLogicHTTPServer
 
 extends Node
